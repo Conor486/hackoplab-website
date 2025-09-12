@@ -1,0 +1,356 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Header and Navigation */
+header {
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-brand h1 {
+    color: #00d4ff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00d4ff;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.1rem !important;
+    color: #cbd5e0;
+    margin-bottom: 2rem !important;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #00d4ff;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: #00b8d4;
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text h3 {
+    color: #1a1a1a;
+    margin: 30px 0 15px 0;
+}
+
+.about-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-text li {
+    padding: 8px 0;
+    border-left: 3px solid #00d4ff;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.placeholder-image {
+    background: #e2e8f0;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    background: #e2e8f0;
+    color: #2d3748;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.active {
+    background: #10b981;
+    color: white;
+}
+
+.status.in-progress {
+    background: #f59e0b;
+    color: white;
+}
+
+.status.planning {
+    background: #6366f1;
+    color: white;
+}
+
+/* Lab Setup Section */
+.lab-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.lab-category {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #00d4ff;
+}
+
+.lab-category h3 {
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.lab-category ul {
+    list-style: none;
+}
+
+.lab-category li {
+    padding: 8px 0;
+    color: #4a5568;
+    position: relative;
+    padding-left: 20px;
+}
+
+.lab-category li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-content {
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    background: #00d4ff;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section headings */
+.section h2 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
