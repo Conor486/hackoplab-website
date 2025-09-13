@@ -286,14 +286,65 @@ nav {
     margin-bottom: 20px;
 }
 
-.tech-stack span {
-    background: #e2e8f0;
-    color: #2d3748;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
+/* Replace the tech-icons CSS with binary floating code */
+.binary-float {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    opacity: 0.8;
+    flex-wrap: wrap;
 }
+
+.binary-code {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    color: #00d4ff;
+    font-weight: bold;
+    animation: binaryFloat 4s ease-in-out infinite;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.binary-code:hover {
+    color: #00b8d4;
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+.binary-code:nth-child(1) { animation-delay: 0s; }
+.binary-code:nth-child(2) { animation-delay: 0.3s; }
+.binary-code:nth-child(3) { animation-delay: 0.6s; }
+.binary-code:nth-child(4) { animation-delay: 0.9s; }
+.binary-code:nth-child(5) { animation-delay: 1.2s; }
+.binary-code:nth-child(6) { animation-delay: 1.5s; }
+.binary-code:nth-child(7) { animation-delay: 1.8s; }
+.binary-code:nth-child(8) { animation-delay: 2.1s; }
+.binary-code:nth-child(9) { animation-delay: 2.4s; }
+
+@keyframes binaryFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Lab overlay icons update */
+.lab-specs .spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Specific icons for lab components */
+.spec-item.proxmox .spec-icon::before { content: "🖥️"; }
+.spec-item.security .spec-icon::before { content: "🔒"; }
+.spec-item.monitoring .spec-icon::before { content: "📊"; }
+.spec-item.compliance .spec-icon::before { content: "🛡️"; }
 
 .status {
     position: absolute;
