@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hackopalab.com/sitemap.xml
