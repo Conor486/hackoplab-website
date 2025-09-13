@@ -416,3 +416,61 @@
         padding: 2rem;
     }
 }
+/* Add these styles to your existing CSS - don't replace anything */
+
+/* Only add this if you don't have .section-subtitle */
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #6b7280;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+/* Enhanced lab features - builds on your existing styles */
+.lab-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Improve existing feature cards */
+.lab-features .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lab-features .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.lab-features .feature-card .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.lab-features .feature-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.lab-features .feature-card li {
+    padding: 0.5rem 0;
+    color: #6b7280;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.lab-features .feature-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #00d4ff;
+    font-weight: bold;
+}
