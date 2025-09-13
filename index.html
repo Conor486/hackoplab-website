@@ -155,5 +155,77 @@
             <p>&copy; 2025 HackOpLab. All rights reserved.</p>
         </div>
     </footer>
+    <section id="projects" class="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <p class="subtitle">Homelab builds, SOC2/ISO work, and experiments.</p>
+    <div class="grid">
+      <article class="card">
+        <img src="/assets/images/pihole.webp" alt="Pi-hole DNS" loading="lazy">
+        <h3>Pi-hole DNS + DoH</h3>
+        <p>Network-wide ad-blocking with Cloudflared DoH and allow/deny lists.</p>
+        <a class="btn" href="#" aria-label="Read Pi-hole project">Read</a>
+      </article>
+      <article class="card">
+        <img src="/assets/images/proxmox.webp" alt="Proxmox cluster" loading="lazy">
+        <h3>Proxmox VM Fleet</h3>
+        <p>Ubuntu, Kali, Docker, nginx—backups, snapshots, VLANs.</p>
+        <a class="btn" href="#" aria-label="Read Proxmox project">Read</a>
+      </article>
+      <article class="card">
+        <img src="/assets/images/soc2.webp" alt="SOC 2" loading="lazy">
+        <h3>SOC 2 Program</h3>
+        <p>Policies, monitoring, and evidence pipeline for audit readiness.</p>
+        <a class="btn" href="#" aria-label="Read SOC2 project">Read</a>
+      </article>
+    </div>
+  </div>
+</section>
+    <a href="https://www.linkedin.com/in/<your-slug>" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+
+
 </body>
 </html>
+<nav class="social">
+  <a href="https://github.com/Conor486" aria-label="GitHub" target="_blank" rel="noopener">GitHub</a>
+  <a href="https://www.linkedin.com/in/<your-slug>" aria-label="LinkedIn" target="_blank" rel="me noopener">LinkedIn</a>
+  <a href="mailto:admin@hackopalab.com" aria-label="Email">Email</a>
+</nav>
+<style>
+.social { display:flex; gap:.9rem; align-items:center }
+.social a { border:1px solid #2a9df4; padding:.35rem .6rem; border-radius:10px; text-decoration:none }
+.social a:hover { background:#2a9df4; color:#05101a }
+</style>
+<picture>
+  <source srcset="/assets/images/lab-rack.avif" type="image/avif">
+  <source srcset="/assets/images/lab-rack.webp" type="image/webp">
+  <img src="/assets/images/lab-rack.jpg" alt="HackOpLab homelab rack" loading="lazy" width="1200" height="675">
+</picture>
+<link rel="icon" href="/assets/brand/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<meta property="og:title" content="HackOpLab">
+<meta property="og:description" content="Information Security research & homelab adventures.">
+<meta property="og:image" content="https://hackopalab.com/assets/brand/og-card.webp">
+<meta name="twitter:card" content="summary_large_image">
+<form action="https://formspree.io/f/yourid" method="POST" class="contact">
+  <label>Name <input name="name" required></label>
+  <label>Email <input type="email" name="email" required></label>
+  <label>Message <textarea name="message" rows="5" required></textarea></label>
+  <button type="submit">Send</button>
+</form>
+<article class="card">
+  <img src="/assets/pihole.webp" alt="Pi-hole DNS and DoH project" loading="lazy" width="1200" height="675">
+  <h3>Pi-hole DNS + DoH</h3>
+  <p>Network-wide ad-blocking and secure DNS over HTTPS with Cloudflared.</p>
+</article>
+<meta property="og:title" content="HackOpLab">
+<meta property="og:description" content="Information Security Research & Homelab Adventures">
+<meta property="og:image" content="https://hackopalab.com/assets/og-card.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon.ico">
+
+
+
+
+
