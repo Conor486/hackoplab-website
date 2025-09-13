@@ -443,3 +443,38 @@ a:hover {
     /* Add this to ensure no spacing issues */
     vertical-align: top;
 }
+/* Enhanced Projects Header with Floating Tech Icons */
+.projects-header {
+    position: relative;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    opacity: 0.8;
+}
+
+.tech-icon {
+    font-size: 2.2rem;
+    animation: techFloat 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+.tech-icon:nth-child(1) { animation-delay: 0s; }
+.tech-icon:nth-child(2) { animation-delay: 0.4s; }
+.tech-icon:nth-child(3) { animation-delay: 0.8s; }
+.tech-icon:nth-child(4) { animation-delay: 1.2s; }
+.tech-icon:nth-child(5) { animation-delay: 1.6s; }
+
+@keyframes techFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
