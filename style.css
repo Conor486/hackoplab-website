@@ -772,3 +772,56 @@ a[href*="github.com"], a[href*="/contact"], #contact{ display:none !important; }
   justify-content: center;
   flex-wrap: wrap;
 }
+/* Center the hero copy block */
+.hero-container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.hero-copy {
+  max-width: 900px; /* keeps lines readable on large screens */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+/* Decorative “tech grid” background */
+.tech-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(80% 60% at 50% 10%, rgba(88, 182, 255, 0.18), transparent 60%),
+    radial-gradient(60% 40% at 30% 0%, rgba(155, 100, 255, 0.12), transparent 55%),
+    repeating-linear-gradient(
+      to right,
+      rgba(255,255,255,.04) 0 1px,
+      transparent 1px 24px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.04) 0 1px,
+      transparent 1px 24px
+    ),
+    linear-gradient(#0e1525, #0c1220); /* base */
+}
+
+/* Ensure hero content sits above the decoration */
+.hero-container, .hero-copy { position: relative; z-index: 1; }
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+}
+.badges span { white-space: nowrap; }
+/* TEMP: hide the old lab banner image */
+#lab-showcase img {
+  display: none !important;
+}
+/* Safety: hide any lingering hero/lab images */
+.hero img,
+#lab-showcase img {
+  display: none !important;
+}
+
