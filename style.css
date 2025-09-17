@@ -749,3 +749,26 @@ a[href*="github.com"], a[href*="/contact"], #contact{ display:none !important; }
   justify-content: center;   // centers the row
 }
 */
+/* --- Center the hero headline + copy --- */
+#hero .hero-copy{
+  max-width: 980px;
+  margin-inline: auto;      /* center the block itself */
+  text-align: center;       /* center the text */
+  padding: 0 24px;          /* safe side padding */
+}
+
+/* Optional: constrain the paragraph width so it reads nicely */
+#hero .hero-copy p{
+  max-width: 70ch;
+  margin: 0.5rem auto 1.25rem;  /* center paragraphs too */
+}
+
+/* If you have a row of links/buttons under the text, center them */
+#hero .hero-copy .btn-row,
+#hero .hero-copy .cta,
+#hero .hero-copy .stats{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
