@@ -1,1 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackOpLab - Information Security Research & Homelab Adventures</title>
+    <meta name="description" content="Professional InfoSec research, compliance automation, and homelab experiments. SOC management, ISO 27001, GDPR compliance expertise.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="HackOpLab - InfoSec Research & Homelab">
+    <meta property="og:description" content="Information Security Research & Homelab Adventures">
+    <meta property="og:image" content="https://hackoplab.com/assets/og-card.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Icons -->
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header bg-grid">
+  <div class="container nav">
+    <a class="brand" href="/">HackOpLab</a>
+    <nav class="main-nav">
+      <a href="#lab">Lab</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <!-- Contact/GitHub intentionally removed for now -->
+    </nav>
+  </div>
+</header>
+
+<section id="hero" class="hero container">
+  <div class="hero-copy">
+    <h1>Lab Environment</h1>
+    <p class="lead">
+      Professional-grade homelab for security research, compliance testing, and infrastructure experiments.
+    </p>
+
+    <div class="badges">
+      <span>🖥️ Proxmox Cluster</span>
+      <span>🛡️ Security Testing</span>
+      <span>📈 SOC Monitoring</span>
+      <span>✅ Compliance Tools</span>
+    </div>
+  </div>
+
+  <figure class="hero-media">
+    <!-- Use your existing file hero-dark.webp (already in the repo) -->
+    <img src="hero-dark.webp" alt="HackOpLab rack and network equipment" loading="lazy" />
+  </figure>
+</section>
+
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <h1>HackOpLab</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#lab-showcase">Lab</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-mobile">
+                <span class="hamburger"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Information Security Research & Homelab Adventures</h1>
+                <p class="hero-subtitle">Professional SOC management, ISO 27001 compliance, and GDPR expertise combined with cutting-edge homelab experiments.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years InfoSec</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">ISO 27001</span>
+                        <span class="stat-label">Certified</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">DPO</span>
+                        <span class="stat-label">Qualified</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#lab-showcase" class="cta-primary">Explore Lab</a>
+                    <a href="#contact" class="cta-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Showcase Section -->
+        <section id="lab-showcase" class="lab-showcase">
+            <div class="container">
+                <h2>Lab Environment</h2>
+                <p class="section-subtitle">Professional-grade homelab for security research, compliance testing, and infrastructure experiments</p>
+                
+                <div class="lab-hero-image">
+                    <picture>
+                        <source srcset="/assets/images/lab-rack.avif" type="image/avif">
+                        <source srcset="/assets/images/lab-rack.webp" type="image/webp">
+                        <img src="/assets/images/lab-rack.jpg" alt="HackOpLab homelab server rack with network equipment" loading="lazy" width="1200" height="675">
+                    </picture>
+                    <div class="lab-overlay">
+                        <div class="lab-specs">
+                            <div class="spec-item proxmox">
+    <span class="spec-icon"></span>
+    <span>Proxmox Cluster</span>
+</div>
+<div class="spec-item security">
+    <span class="spec-icon"></span>
+    <span>Security Testing</span>
+</div>
+<div class="spec-item monitoring">
+    <span class="spec-icon"></span>
+    <span>SOC Monitoring</span>
+</div>
+<div class="spec-item compliance">
+    <span class="spec-icon"></span>
+    <span>Compliance Tools</span>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Security Testing Environment</h3>
+                        <p>Isolated networks for penetration testing, vulnerability assessment, and security tool evaluation.</p>
+                        <ul>
+                            <li>Kali Linux instances</li>
+                            <li>Vulnerable app testing</li>
+                            <li>Network segmentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>📋 Compliance Automation</h3>
+                        <p>Automated tools for GDPR, ISO 27001, and SOC 2 compliance monitoring and reporting.</p>
+                        <ul>
+                            <li>Policy management systems</li>
+                            <li>Audit trail automation</li>
+                            <li>Compliance dashboards</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🖥️</div>
+                        <h3>Infrastructure Platform</h3>
+                        <p>Enterprise-grade virtualization and container orchestration for scalable testing.</p>
+                        <ul>
+                            <li>Proxmox virtualization</li>
+                            <li>Docker containers</li>
+                            <li>Network monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <p class="about-intro">Information Security professional specializing in SOC management, ISO 27001 compliance, and data protection. 
+                            </a> to help organizations achieve and maintain security compliance.</p>
+                        
+                        <p>HackOpLab serves as my personal testing ground for security tools, compliance automation, and infrastructure experiments that directly benefit my professional work and client projects.</p>
+                        
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <span class="expertise-icon">🛡️</span>
+                                <div>
+                                    <h4>SOC Management</h4>
+                                    <p>24/7 monitoring and incident response</p>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <span class="expertise-icon">📋</span>
+                                <div>
+                                    <h4>ISO 27001 Implementation</h4>
+                                    <p>Framework design and audit preparation</p>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <span class="expertise-icon">🔐</span>
+                                <div>
+                                    <h4>Data Protection (DPO)</h4>
+                                    <p>GDPR compliance and privacy by design</p>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <span class="expertise-icon">📚</span>
+                                <div>
+                                    <h4>Security Training</h4>
+                                    <p>Awareness programs and policy development</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-sidebar">
+                        <div class="credentials-card">
+                            <h3>Professional Credentials</h3>
+                            <ul class="credentials-list">
+                                <li>
+                                    <span class="credential-badge">DPO</span>
+                                    <span>Data Protection Officer</span>
+                                </li>
+                                <li>
+                                    <span class="credential-badge">ISO</span>
+                                    <span>ISO 27001 Lead Implementer</span>
+                                </li>
+                                <li>
+                                    <span class="credential-badge">SOC</span>
+                                    <span>SOC Analyst Certified</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="stats-card">
+                            <h3>Impact</h3>
+                            <div class="stat-item">
+                                <span class="stat-value">50+</span>
+                                <span class="stat-desc">Compliance Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">24/7</span>
+                                <span class="stat-desc">SOC Monitoring</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-desc">Audit Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section bg-light">
+    <div class="container">
+        <div class="projects-header">
+            <h2>Current Projects</h2>
+            <p class="section-subtitle">Homelab builds, compliance automation, and security research experiments</p>
+            
+            <div class="binary-float">
+    <span class="binary-code">01001000</span>
+    <span class="binary-code">01100001</span>
+    <span class="binary-code">01100011</span>
+    <span class="binary-code">01101011</span>
+    <span class="binary-code">01001111</span>
+    <span class="binary-code">01110000</span>
+    <span class="binary-code">01001100</span>
+    <span class="binary-code">01100001</span>
+    <span class="binary-code">01100010</span>
+</div>
+        </div>
+                
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="/assets/images/gdpr-scanner.webp" alt="GDPR Compliance Scanner interface" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="project-content">
+                            <h3>GDPR Compliance Scanner</h3>
+                            <p>Automated tool using Anthropic Claude API to scan websites for GDPR, CCPA, and privacy regulation compliance. Features cookie analysis and privacy policy validation.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Anthropic Claude API</span>
+                                <span class="tech-tag">Web Scraping</span>
+                                <span class="tech-tag">Privacy Law</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="status in-progress">In Development</span>
+                                <a href="#" class="project-link">View Project →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="/assets/images/proxmox-cluster.webp" alt="Proxmox virtualization cluster" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="project-content">
+                            <h3>Proxmox VM Fleet</h3>
+                            <p>High-availability virtualization cluster running Ubuntu, Kali, Docker environments with automated backups, snapshots, and VLAN segmentation.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Proxmox</span>
+                                <span class="tech-tag">Virtualization</span>
+                                <span class="tech-tag">Network Security</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="status active">Active</span>
+                                <a href="#" class="project-link">View Project →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="/assets/images/soc2-dashboard.webp" alt="SOC 2 compliance dashboard" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="project-content">
+                            <h3>SOC 2 Automation Platform</h3>
+                            <p>Comprehensive policies, monitoring pipeline, and evidence collection system designed for audit readiness and continuous compliance.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">SOC 2</span>
+                                <span class="tech-tag">Automation</span>
+                                <span class="tech-tag">Compliance</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="status active">Active</span>
+                                <a href="#" class="project-link">View Project →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p class="section-subtitle">Interested in discussing security, compliance, or collaboration opportunities?</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>Whether you're looking to discuss compliance projects, security consulting, or just want to chat about homelab setups, I'd love to hear from you.</p>
+                        
+                        <div class="contact-methods">
+                            <a href="mailto:admin@hackoplab.com" class="contact-method">
+                                <span class="method-icon">📧</span>
+                                <div class="method-content">
+                                    <span class="method-label">Email</span>
+                                    <span class="method-value">admin@hackoplab.com</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://www.linkedin.com/in/conor-murphy-infosec" class="contact-method" target="_blank" rel="noopener">
+                                <span class="method-icon">💼</span>
+                                <div class="method-content">
+                                    <span class="method-label">LinkedIn</span>
+                                    <span class="method-value">Professional Network</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://github.com/Conor486" class="contact-method" target="_blank" rel="noopener">
+                                <span class="method-icon">🔗</span>
+                                <div class="method-content">
+                                    <span class="method-label">GitHub</span>
+                                    <span class="method-value">Code & Projects</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a topic...</option>
+                                    <option value="compliance">Compliance Consulting</option>
+                                    <option value="security">Security Projects</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or question..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>HackOpLab</h3>
+                    <p>Information Security Research & Homelab Adventures</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Professional</h4>
+                        
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <ul>
+
+                            <li><a href="mailto:admin@hackoplab.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 HackOpLab. All rights reserved. | Information Security & Compliance Consulting</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.nav-mobile').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<link rel="stylesheet" href="style.css?v=3">
+<section id="hero" class="hero container">
+  <!-- Decorative tech background -->
+  <div class="tech-bg" aria-hidden="true"></div>
+
+  <div class="hero-copy">
+    <!-- existing content … -->
+
+<link rel="stylesheet" href="style.css">
+
+<!-- after (replace 0c3e2d2 with your current main SHA) -->
+<link rel="stylesheet" href="style.css?v=0c3e2d2">
+<head>
+  ...
+</head>
+<section id="hero" class="hero container">
+  <div class="tech-bg" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <!-- headline, subcopy, CTAs -->
+  </div>
+</section>
+<img src="..." alt="..." loading="lazy" decoding="async" width="..." height="...">
+<link rel="stylesheet" href="style.css?v=4">
 
