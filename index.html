@@ -520,3 +520,27 @@ document.querySelectorAll('.card, .project-card').forEach(card => {
     observer.observe(card);
 });
 </script>
+<script>
+// Smooth scrolling and header effects
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Add fade-in animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+        }
+    });
+});
+
+document.querySelectorAll('.card, .project-card').forEach(card => {
+    observer.observe(card);
+});
+</script>
