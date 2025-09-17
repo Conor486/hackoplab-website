@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Import modern fonts */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -23,11 +24,25 @@
 
 /* Reset and base styles */
 * {
+=======
+:root {
+    --primary-color: #00e5ff;
+    --secondary-color: #6a00ff;
+    --text-color: #f0f0f0;
+    --bg-color: #0d0d1a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+>>>>>>> dev
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -661,4 +676,81 @@ footer {
 @keyframes loading-shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
+=======
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 10%;
+    /* Use the generated graphic as a background image */
+    background: url('https://googleusercontent.com/image_generation_content/0') no-repeat center center/cover;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.credentials {
+    margin-top: 1rem;
+}
+
+.credentials span {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.cta-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+>>>>>>> dev
 }
