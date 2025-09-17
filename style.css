@@ -754,3 +754,44 @@ footer {
     display: inline-block;
 >>>>>>> dev
 }
+/* Skip link */
+.skip-to{
+  position:absolute; left:-9999px; top:auto;
+  background:#0ea5e9; color:#001b2a; padding:.5rem .75rem; border-radius:.4rem
+}
+.skip-to:focus{ left:1rem; top:1rem; z-index:1000 }
+
+/* Active nav (current page) */
+.nav-links a[aria-current="page"] { color:#7dd3fc; }
+
+/* Card hover affordance (if your cards use .card) */
+.card{
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  will-change: transform;
+}
+.card:hover{ transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.card a.view-link{ text-decoration:none; border-bottom:1px solid transparent; }
+.card a.view-link:hover{ border-bottom-color: currentColor; }
+
+/* Scroll cue under hero */
+.scroll-cue{
+  position:absolute; left:50%; bottom:1.25rem; transform:translateX(-50%);
+  font-size:1.5rem; opacity:.65; text-decoration:none;
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{ transform:translate(-50%,0) }
+  50%{ transform:translate(-50%,-6px) }
+}
+
+/* Visible focus rings (don’t remove outlines globally) */
+a:focus, button:focus { outline: 2px solid #7dd3fc; outline-offset: 2px; }
+
+/* Status chips (optional) */
+.chip{ font-size:.75rem; border-radius:999px; padding:.2rem .55rem; border:1px solid transparent }
+.chip.active     { color:#16a34a; background:#16a34a1a; border-color:#16a34a3d }
+.chip.in-progress{ color:#f59e0b; background:#f59e0b1a; border-color:#f59e0b3d }
+
+/* Mobile tighten for any binary/banner strip (optional) */
+@media (max-width:480px){ .binary-banner{ padding-block:.5rem } }
