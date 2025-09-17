@@ -1,463 +1,768 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HackOpLab - Information Security Research & Homelab Adventures</title>
-    <meta name="description" content="Professional InfoSec research, compliance automation, and homelab experiments. SOC management, ISO 27001, GDPR compliance expertise.">
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section */
+.section {
+    padding: 60px 0;
+}
+
+/* Background light */
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Header and Navigation */
+header {
+    background: #1a1a2e;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b7ff, transparent);
+    animation: scan-line 3s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+    0%, 100% { opacity: 0.3; transform: scaleX(0.5); }
+    50% { opacity: 1; transform: scaleX(1); }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00b7ff;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    animation: logo-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+    0% { text-shadow: 0 0 5px #00b7ff; }
+    100% { text-shadow: 0 0 20px #00b7ff, 0 0 30px rgba(0, 183, 255, 0.5); }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00b7ff;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #00b7ff;
+    text-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+}
+
+/* Hero Section with Tech Background */
+.hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 183, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 183, 255, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 24%, rgba(0, 183, 255, 0.05) 25%, rgba(0, 183, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 183, 255, 0.05) 75%, rgba(0, 183, 255, 0.05) 76%, transparent 77%);
+    background-size: 200px 200px;
+    animation: tech-grid 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes tech-grid {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    margin: -150px 0 0 -150px;
+    border: 1px solid rgba(0, 183, 255, 0.3);
+    border-radius: 50%;
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    position: relative;
+    z-index: 2;
+    animation: text-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+    0% { text-shadow: 0 0 10px rgba(0, 183, 255, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(0, 183, 255, 0.8), 0 0 30px rgba(0, 183, 255, 0.3); }
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Service Buttons with Hover Animation */
+.service-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.service-btn {
+    background: rgba(0, 183, 255, 0.1);
+    border: 1px solid rgba(0, 183, 255, 0.3);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.service-btn:hover::before {
+    left: 100%;
+}
+
+.service-btn:hover {
+    background: rgba(0, 183, 255, 0.2);
+    border-color: #00b7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 183, 255, 0.3);
+}
+
+/* Grid System */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding: 1rem;
+}
+
+/* Cards with Subtle Animation */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 183, 255, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: #00b7ff;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00b7ff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.card:hover .card-title::after {
+    width: 60px;
+}
+
+.card-text {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+li::before {
+    content: '→';
+    color: #00b7ff;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    color: #2d3748;
+    transform: translateX(5px);
+}
+
+li:hover::before {
+    transform: translateX(3px);
+}
+
+/* Projects Section */
+.projects-section {
+    background: #f7fafc;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b7ff, transparent);
+    animation: section-line 5s ease-in-out infinite;
+}
+
+@keyframes section-line {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #718096;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enhanced Binary Code Animation */
+.binary-section {
+    text-align: center;
+    padding: 2rem 0;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.binary-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(0, 183, 255, 0.1) 50%, transparent 100%);
+    animation: binary-scan 8s linear infinite;
+}
+
+@keyframes binary-scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.binary-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.binary-code {
+    color: #00b7ff;
+    font-size: 1rem;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: binary-flicker 2s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes binary-flicker {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+.binary-code:hover {
+    opacity: 1;
+    text-shadow: 0 0 10px #00b7ff;
+    transform: scale(1.1);
+}
+
+/* Add this to your HTML: style="--i: 0" style="--i: 1" etc. for each binary-code */
+
+/* Project Cards */
+.project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 183, 255, 0.05) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 183, 255, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #00b7ff, #0ea5e9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hide any actual images that might be ghosting */
+.project-image img {
+    display: none !important;
+}
+
+/* Ensure clean rendering */
+.project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 1;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+    z-index: 2;
+}
+
+.project-card:hover .project-image::before {
+    left: 100%;
+}
+
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 10;
+    animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.status-active {
+    background: #48bb78;
+    color: white;
+    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+}
+
+.status-development {
+    background: #ed8936;
+    color: white;
+    box-shadow: 0 0 15px rgba(237, 137, 54, 0.3);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2d3748;
+}
+
+.project-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-link {
+    color: #00b7ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-link:hover {
+    color: #0ea5e9;
+    text-shadow: 0 0 5px rgba(0, 183, 255, 0.3);
+}
+
+.project-link::after {
+    content: ' →';
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* Footer */
+footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 3rem 0 1rem;
+    text-align: center;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00b7ff, transparent);
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    color: #00b7ff;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.footer-subtitle {
+    color: #a0aec0;
+    margin-bottom: 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #00b7ff;
+}
+
+.footer-link {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #00b7ff;
+    text-shadow: 0 0 5px rgba(0, 183, 255, 0.3);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-primary, .cta-button {
+    background: linear-gradient(135deg, #00b7ff, #0ea5e9);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before, .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before, .cta-button:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover, .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 183, 255, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-light {
+    color: #a0aec0 !important;
+}
+
+.mb-2 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mt-4 { margin-top: 2rem; }
+.py-5 { padding: 3rem 0; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px 60px;
+    }
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="HackOpLab - InfoSec Research & Homelab">
-    <meta property="og:description" content="Information Security Research & Homelab Adventures">
-    <meta property="og:image" content="https://hackoplab.com/assets/og-card.webp">
-    <meta name="twitter:card" content="summary_large_image">
+    .hero h1 {
+        font-size: 2rem;
+    }
     
-    <!-- Icons -->
-    <link rel="icon" href="/assets/favicon.ico">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
     
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="site-header bg-grid">
-  <div class="container nav">
-    <a class="brand" href="/">HackOpLab</a>
-    <nav class="main-nav">
-      <a href="#lab">Lab</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <!-- Contact/GitHub intentionally removed for now -->
-    </nav>
-  </div>
-</header>
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+    
+    .row {
+        margin: -0.5rem;
+    }
+    
+    .service-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .binary-row {
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+}
 
-<section id="hero" class="hero container">
-  <div class="hero-copy">
-    <h1>Lab Environment</h1>
-    <p class="lead">
-      Professional-grade homelab for security research, compliance testing, and infrastructure experiments.
-    </p>
-
-    <div class="badges">
-      <span>🖥️ Proxmox Cluster</span>
-      <span>🛡️ Security Testing</span>
-      <span>📈 SOC Monitoring</span>
-      <span>✅ Compliance Tools</span>
-    </div>
-  </div>
-
-  <figure class="hero-media">
-    <!-- Use your existing file hero-dark.webp (already in the repo) -->
-    <img src="hero-dark.webp" alt="HackOpLab rack and network equipment" loading="lazy" />
-  </figure>
-</section>
-
-    <header>
-        <nav>
-            <div class="nav-brand">
-                <h1>HackOpLab</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#lab-showcase">Lab</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-mobile">
-                <span class="hamburger"></span>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Information Security Research & Homelab Adventures</h1>
-                <p class="hero-subtitle">Professional SOC management, ISO 27001 compliance, and GDPR expertise combined with cutting-edge homelab experiments.</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years InfoSec</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">ISO 27001</span>
-                        <span class="stat-label">Certified</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">DPO</span>
-                        <span class="stat-label">Qualified</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#lab-showcase" class="cta-primary">Explore Lab</a>
-                    <a href="#contact" class="cta-secondary">Get In Touch</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lab Showcase Section -->
-        <section id="lab-showcase" class="lab-showcase">
-            <div class="container">
-                <h2>Lab Environment</h2>
-                <p class="section-subtitle">Professional-grade homelab for security research, compliance testing, and infrastructure experiments</p>
-                
-                <div class="lab-hero-image">
-                    <picture>
-                        <source srcset="/assets/images/lab-rack.avif" type="image/avif">
-                        <source srcset="/assets/images/lab-rack.webp" type="image/webp">
-                        <img src="/assets/images/lab-rack.jpg" alt="HackOpLab homelab server rack with network equipment" loading="lazy" width="1200" height="675">
-                    </picture>
-                    <div class="lab-overlay">
-                        <div class="lab-specs">
-                            <div class="spec-item proxmox">
-    <span class="spec-icon"></span>
-    <span>Proxmox Cluster</span>
-</div>
-<div class="spec-item security">
-    <span class="spec-icon"></span>
-    <span>Security Testing</span>
-</div>
-<div class="spec-item monitoring">
-    <span class="spec-icon"></span>
-    <span>SOC Monitoring</span>
-</div>
-<div class="spec-item compliance">
-    <span class="spec-icon"></span>
-    <span>Compliance Tools</span>
-</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lab-features">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Security Testing Environment</h3>
-                        <p>Isolated networks for penetration testing, vulnerability assessment, and security tool evaluation.</p>
-                        <ul>
-                            <li>Kali Linux instances</li>
-                            <li>Vulnerable app testing</li>
-                            <li>Network segmentation</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <h3>📋 Compliance Automation</h3>
-                        <p>Automated tools for GDPR, ISO 27001, and SOC 2 compliance monitoring and reporting.</p>
-                        <ul>
-                            <li>Policy management systems</li>
-                            <li>Audit trail automation</li>
-                            <li>Compliance dashboards</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">🖥️</div>
-                        <h3>Infrastructure Platform</h3>
-                        <p>Enterprise-grade virtualization and container orchestration for scalable testing.</p>
-                        <ul>
-                            <li>Proxmox virtualization</li>
-                            <li>Docker containers</li>
-                            <li>Network monitoring</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-grid">
-                    <div class="about-content">
-                        <p class="about-intro">Information Security professional specializing in SOC management, ISO 27001 compliance, and data protection. 
-                            </a> to help organizations achieve and maintain security compliance.</p>
-                        
-                        <p>HackOpLab serves as my personal testing ground for security tools, compliance automation, and infrastructure experiments that directly benefit my professional work and client projects.</p>
-                        
-                        <div class="expertise-grid">
-                            <div class="expertise-item">
-                                <span class="expertise-icon">🛡️</span>
-                                <div>
-                                    <h4>SOC Management</h4>
-                                    <p>24/7 monitoring and incident response</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <span class="expertise-icon">📋</span>
-                                <div>
-                                    <h4>ISO 27001 Implementation</h4>
-                                    <p>Framework design and audit preparation</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <span class="expertise-icon">🔐</span>
-                                <div>
-                                    <h4>Data Protection (DPO)</h4>
-                                    <p>GDPR compliance and privacy by design</p>
-                                </div>
-                            </div>
-                            <div class="expertise-item">
-                                <span class="expertise-icon">📚</span>
-                                <div>
-                                    <h4>Security Training</h4>
-                                    <p>Awareness programs and policy development</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-sidebar">
-                        <div class="credentials-card">
-                            <h3>Professional Credentials</h3>
-                            <ul class="credentials-list">
-                                <li>
-                                    <span class="credential-badge">DPO</span>
-                                    <span>Data Protection Officer</span>
-                                </li>
-                                <li>
-                                    <span class="credential-badge">ISO</span>
-                                    <span>ISO 27001 Lead Implementer</span>
-                                </li>
-                                <li>
-                                    <span class="credential-badge">SOC</span>
-                                    <span>SOC Analyst Certified</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="stats-card">
-                            <h3>Impact</h3>
-                            <div class="stat-item">
-                                <span class="stat-value">50+</span>
-                                <span class="stat-desc">Compliance Projects</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">24/7</span>
-                                <span class="stat-desc">SOC Monitoring</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">100%</span>
-                                <span class="stat-desc">Audit Success Rate</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects section bg-light">
-    <div class="container">
-        <div class="projects-header">
-            <h2>Current Projects</h2>
-            <p class="section-subtitle">Homelab builds, compliance automation, and security research experiments</p>
-            
-            <div class="binary-float">
-    <span class="binary-code">01001000</span>
-    <span class="binary-code">01100001</span>
-    <span class="binary-code">01100011</span>
-    <span class="binary-code">01101011</span>
-    <span class="binary-code">01001111</span>
-    <span class="binary-code">01110000</span>
-    <span class="binary-code">01001100</span>
-    <span class="binary-code">01100001</span>
-    <span class="binary-code">01100010</span>
-</div>
-        </div>
-                
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/assets/images/gdpr-scanner.webp" alt="GDPR Compliance Scanner interface" loading="lazy" width="400" height="250">
-                        </div>
-                        <div class="project-content">
-                            <h3>GDPR Compliance Scanner</h3>
-                            <p>Automated tool using Anthropic Claude API to scan websites for GDPR, CCPA, and privacy regulation compliance. Features cookie analysis and privacy policy validation.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Anthropic Claude API</span>
-                                <span class="tech-tag">Web Scraping</span>
-                                <span class="tech-tag">Privacy Law</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="status in-progress">In Development</span>
-                                <a href="#" class="project-link">View Project →</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/assets/images/proxmox-cluster.webp" alt="Proxmox virtualization cluster" loading="lazy" width="400" height="250">
-                        </div>
-                        <div class="project-content">
-                            <h3>Proxmox VM Fleet</h3>
-                            <p>High-availability virtualization cluster running Ubuntu, Kali, Docker environments with automated backups, snapshots, and VLAN segmentation.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Proxmox</span>
-                                <span class="tech-tag">Virtualization</span>
-                                <span class="tech-tag">Network Security</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="status active">Active</span>
-                                <a href="#" class="project-link">View Project →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/assets/images/soc2-dashboard.webp" alt="SOC 2 compliance dashboard" loading="lazy" width="400" height="250">
-                        </div>
-                        <div class="project-content">
-                            <h3>SOC 2 Automation Platform</h3>
-                            <p>Comprehensive policies, monitoring pipeline, and evidence collection system designed for audit readiness and continuous compliance.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">SOC 2</span>
-                                <span class="tech-tag">Automation</span>
-                                <span class="tech-tag">Compliance</span>
-                            </div>
-                            <div class="project-footer">
-                                <span class="status active">Active</span>
-                                <a href="#" class="project-link">View Project →</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Let's Connect</h2>
-                <p class="section-subtitle">Interested in discussing security, compliance, or collaboration opportunities?</p>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>Whether you're looking to discuss compliance projects, security consulting, or just want to chat about homelab setups, I'd love to hear from you.</p>
-                        
-                        <div class="contact-methods">
-                            <a href="mailto:admin@hackoplab.com" class="contact-method">
-                                <span class="method-icon">📧</span>
-                                <div class="method-content">
-                                    <span class="method-label">Email</span>
-                                    <span class="method-value">admin@hackoplab.com</span>
-                                </div>
-                            </a>
-                            
-                            <a href="https://www.linkedin.com/in/conor-murphy-infosec" class="contact-method" target="_blank" rel="noopener">
-                                <span class="method-icon">💼</span>
-                                <div class="method-content">
-                                    <span class="method-label">LinkedIn</span>
-                                    <span class="method-value">Professional Network</span>
-                                </div>
-                            </a>
-                            
-                            <a href="https://github.com/Conor486" class="contact-method" target="_blank" rel="noopener">
-                                <span class="method-icon">🔗</span>
-                                <div class="method-content">
-                                    <span class="method-label">GitHub</span>
-                                    <span class="method-value">Code & Projects</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-container">
-                        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="">Select a topic...</option>
-                                    <option value="compliance">Compliance Consulting</option>
-                                    <option value="security">Security Projects</option>
-                                    <option value="collaboration">Collaboration</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or question..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>HackOpLab</h3>
-                    <p>Information Security Research & Homelab Adventures</p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Professional</h4>
-                        
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Connect</h4>
-                        <ul>
-
-                            <li><a href="mailto:admin@hackoplab.com">Email</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 HackOpLab. All rights reserved. | Information Security & Compliance Consulting</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.nav-mobile').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-<link rel="stylesheet" href="style.css?v=3">
-<section id="hero" class="hero container">
-  <!-- Decorative tech background -->
-  <div class="tech-bg" aria-hidden="true"></div>
-
-  <div class="hero-copy">
-    <!-- existing content … -->
-
+/* Smooth scroll for modern browsers */
+html {
+    scroll-behavior: smooth;
+}
