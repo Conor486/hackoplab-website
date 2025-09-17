@@ -659,3 +659,64 @@ a[href*="github.com"], a[href*="/contact"], #contact{ display:none !important; }
   border:1px solid rgba(255,255,255,.15);
   backdrop-filter:blur(6px);
 }
+/* --- TECHY HERO BACKGROUND --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0b1220;                 /* dark base */
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+/* Animated glow + animated grid overlay */
+.tech-bg {
+  --grid: 42px;                         /* grid size */
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* moving gradient glows */
+  background:
+    radial-gradient(800px 300px at 12% -10%, rgba(59,130,246,.22), transparent 60%),
+    radial-gradient(800px 300px at 88% -10%, rgba(34,197,94,.22), transparent 60%),
+    #0b1220;
+  mask-image: radial-gradient(120% 100% at 50% -10%, #000 70%, transparent 100%);
+  animation: hero-glow 28s linear infinite alternate;
+}
+
+/* crisp grid lines on top */
+.tech-bg::after{
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px) top left/var(--grid) var(--grid),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px) top left/var(--grid) var(--grid);
+  opacity: .55;
+  animation: grid-pan 60s linear infinite;
+}
+
+/* keep your text/badges above the background */
+.hero .hero-copy,
+.hero .badges { position: relative; z-index: 1; }
+
+/* subtle animations */
+@keyframes hero-glow {
+  0%   { transform: translate3d(0,0,0) }
+  100% { transform: translate3d(-6%, -3%, 0) }
+}
+@keyframes grid-pan {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: var(--grid) var(--grid), var(--grid) var(--grid); }
+}
+
+/* Optional: slightly lift the badges bar */
+.hero .badges{
+  margin-top: 18px;
+  gap: .6rem;
+}
+.hero .badges span{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.45rem .75rem; border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  backdrop-filter: blur(6px);
+}
