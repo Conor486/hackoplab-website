@@ -624,3 +624,38 @@ body{
 /* -------- Hide Contact & GitHub (belt-and-braces) -------- */
 a[href*="github.com"], a[href*="/contact"], #contact{ display:none !important; }
 .hero-media img{ width:100%; height:360px; object-fit:cover; border-radius:12px; display:block; }
+/* --- TEMP FIXES TO FORCE NEW LOOK --- */
+
+/* Stop any legacy header background image */
+.site-header { background-image: none !important; }
+
+/* Hide any stray <img> that may be inside the header */
+.site-header img { display: none !important; }
+
+/* Make hero image cropped and tidy */
+.hero-media img{
+  width:100%;
+  height:min(48vh, 420px);
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+}
+
+/* Ensure the header “techy” gradient renders even if old rules exist */
+.bg-grid{ position:relative; overflow:hidden; }
+.bg-grid::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1200px 400px at 10% -20%, rgba(34,197,94,.25), transparent 60%),
+    radial-gradient(1200px 400px at 90% -20%, rgba(59,130,246,.25), transparent 60%);
+  opacity:.6; pointer-events:none;
+}
+
+/* Badges look clean (no filename-looking text artefacts) */
+.hero .badges span{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.4rem .7rem; border-radius:999px;
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(6px);
+}
