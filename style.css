@@ -785,3 +785,26 @@ a[href*="github.com"], a[href*="/contact"], #contact{ display:none !important; }
   mask-image: linear-gradient(to bottom, black 75%, transparent);
 }
 .hero.container { position: relative; overflow: hidden; }
+/* --- Kill legacy images on the three project cards --- */
+#projects img,
+#projects picture,
+#projects .card .thumb,
+#projects .card .thumb::before {
+  display: none !important;
+  background: none !important;
+}
+
+/* Catch any inline background-image on card children */
+#projects .card [style*="background-image"] {
+  background-image: none !important;
+}
+
+/* Keep card spacing tidy if an image slot used to reserve height */
+#projects .card .thumb,
+#projects picture,
+#projects img {
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
